@@ -1,11 +1,16 @@
 #pragma once
 #include <vector>
+#include "CommonHeaders.h"
 using namespace std;
 
 class IEntity
 {
+	protected:
+		Position pos;
+		vector<int> resources;
 	public:
-		virtual int getPosition() = 0;
-		virtual vector<int> getResources() = 0;
+		IEntity();
+		virtual Position getPosition();
+		virtual vector<int> getResources();
 };
 

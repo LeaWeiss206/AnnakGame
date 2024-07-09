@@ -2,7 +2,6 @@
 
 Person::Person()
 {
-	resources = { 0, 0, 0, 0 };
     stepPart = 0;
 }
 
@@ -27,27 +26,12 @@ double Person::getSpeed()
     return 0.01;
 }
 
-int Person::getPosition()
-{
-	return 0;
-}
-
-vector<int> Person::getResources()
-{
-	return vector<int>();
-}
 
 bool Person::move(Coordination coord)
 {
-	//if (coord.entity != nullptr){
-
-	//	coord.entity.reset(this);
-	//	return true;
-	//}
     stepPart += getSpeed();
     if (stepPart == 1.0000000000000007){
         if (coord.entity == nullptr) {
-       //     coord.entity.reset(this);
             stepPart = 0;
             return true;
         }

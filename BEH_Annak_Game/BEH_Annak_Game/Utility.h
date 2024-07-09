@@ -4,11 +4,11 @@
 #include <vector>
 #include <fstream>
 
-static const char* ws = " \t\n\r\f\v";
+static const char* ws1 = " \t\n\r\f\v";
 
 static inline void strip(std::string& s) {
-    s.erase(s.find_last_not_of(ws) + 1);
-    s.erase(0, s.find_first_not_of(ws));
+    s.erase(s.find_last_not_of(ws1) + 1);
+    s.erase(0, s.find_first_not_of(ws1));
 }
 
 static inline std::vector<std::string> split(std::string s) {

@@ -5,27 +5,27 @@
 #include "Road.h"
 #include "WorldMap.h"
 
-BuildCommand::BuildCommand(Command command, WorldMap & world):entity(), world(world)
+BuildCommand::BuildCommand(shared_ptr<Command> command, shared_ptr<WorldMap> world)/*:entity(), world(world)*/
 {
-    pos.first = stoi(command.arguments[1]) - 1;
-    pos.second = stoi(command.arguments[0]) - 1;
-    if (command.arguments[0] == "City") 
-        entity = new City(pos);
+    this->entity = entity;
+    this->world = world;
+    pos.first = stoi(command->arguments[2]) - 1;
+    pos.second = stoi(command->arguments[1]) - 1;
+    if (command->arguments[0] == "City") 
+        entity.reset(new City(pos));
 
-    else if (command.arguments[0] == "Village") {
-        entity = new Village(pos);
+    else if (command->arguments[0] == "Village") {
+        entity.reset(new Village(pos));
     }
-    else if (command.arguments[0] == "Road") {
-        entity = new Road(pos);
+    else if (command->arguments[0] == "Road") {
+        entity.reset(new Road(pos));
     }
 
 }
 
 bool BuildCommand::execute()
 {
-    entity.build();
-   /* if(world.getCoordination(pos).tile->landType == "Ground" && (!world.getCoordination(pos).entity || world.getCoordination(pos).entity))
-        
-    world.addEntity(pos, entity, size);*/
-    return true;
+    if (world->getCoordination(pos).tile->landType == "Ground")
+        return entity->build(world);
+    return false;
 }

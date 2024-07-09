@@ -9,7 +9,6 @@ using namespace std;
 WorldMap::WorldMap(Input const& input)
 {
     fillWorldGrid(input);
-    //printWorldGrid();
 }
 WorldMap::WorldMap()
 {
@@ -20,7 +19,19 @@ void WorldMap::printWorldGrid() const
     {
         for (Coordination coord : d)
         {
-            cout<<coord.tile->landTypeNumber << " ";
+            //if (coord.entity != nullptr) {
+            //    /*if (dynamic_pointer_cast<Road>(coord.entity))
+            //        cout << "Road ";
+            //    else if(dynamic_pointer_cast<City>(coord.entity))
+            //        cout << "City ";
+            //    else if (dynamic_pointer_cast<Village>(coord.entity))
+            //        cout << "Village ";
+            //    else if (dynamic_pointer_cast<Person>(coord.entity))
+            //        cout << "Person ";*/
+            //    cout << "0 ";
+            //}
+            //else
+                cout<<coord.tile->landTypeNumber << " ";
         }
         cout<<endl;
     }   
@@ -50,14 +61,17 @@ void WorldMap::fillWorldGrid(Input const& input)
     } 
 }
 
+vector<vector<Coordination>>& WorldMap::getWorldGrid()
+{
+    return worldGrid;
+}
+
 string WorldMap::getSelectedCoordinationsLandType(int x, int y) const
 {
-    string landType;
-    //if (worldGrid[x][y].entity != nullptr)
-    //    return 
-    //else
-    landType = worldGrid[x][y].tile->landType;
-    return landType;
+    //string landType;
+    //landType = worldGrid[x][y].tile->landType;
+    //return landType;
+    return worldGrid[x][y].tile->landType;
 }
 vector<int> WorldMap::getSelectedCoordinationsResource(int x, int y)const
 {
@@ -75,7 +89,6 @@ void WorldMap::startResource(Input const& input)
     int y = stoi(input.start[0]->arguments[2]) - 1, x = stoi(input.start[0]->arguments[3]) - 1;
     string landType;
     landType = getSelectedCoordinationsLandType(x, y);
-    //cout << "try to add  " << resourceAmount << " " << resourceName << " to " << landType << endl;
     if (landType == "Ground" ||
         landType == "Water" ||
         (landType == "Forest" && resourceName != "Wood") ||
@@ -89,15 +102,22 @@ void WorldMap::startResource(Input const& input)
     }
     worldGrid[x][y].tile->startResource(resourceAmount);
 }
-string WorldMap::getCategory(int x, int y) const
+string WorldMap::getCategory(int x, int y)
 {
-    //int resourceAmount = stoi(input.start[0]->arguments[0]);
-    //string resourceName = input.start[0]->arguments[1];
-
-    //int y = stoi(input.steps[0]->arguments[0]) - 1, x = stoi(input.steps[0]->arguments[1]) - 1;
-   
-    //string landType;
-    return getSelectedCoordinationsLandType(x, y);
+    Position pos;
+    pos.first = x;
+    pos.second = y;
+    if (getCoordination(pos).entity == nullptr)
+        return getSelectedCoordinationsLandType(x, y);
+    else if (dynamic_cast<Road*>(getCoordination(pos).entity.get()))
+        return "Road";
+    else if (dynamic_cast<Village*>(getCoordination(pos).entity.get()))
+        return "Village";
+    else if (dynamic_cast<City*>(getCoordination(pos).entity.get()))
+        return "City";
+    else if (dynamic_cast<Person*>(getCoordination(pos).entity.get()))
+        return "Person";
+    return "";
 }
 
 string WorldMap::getResource(int x, int y) const
@@ -124,8 +144,7 @@ void WorldMap::raining()
 
 void WorldMap::startPeople(Input const& input)
 {
-    int peopleAmount = 1; /*stoi(input.start[0]->arguments[0]);*/
-    //string resourceName = input.start[0]->arguments[1];
+    int peopleAmount = 1;
     int y = stoi(input.start[1]->arguments[1]) - 1, x = stoi(input.start[1]->arguments[2]) - 1;
     string landType;
     landType = getSelectedCoordinationsLandType(x, y);
@@ -139,29 +158,30 @@ void WorldMap::startPeople(Input const& input)
         worldGrid[x][y].entity.reset(new Person());
 }
 
-void WorldMap::startbuild(Command command)
+void WorldMap::startbuild(shared_ptr<Command> command)
 {
-    int size;
-    IEntity* entity;
-    if(command.arguments[0] == "City") {
-        entity = new City();
-        size = 20; 
-    }
-    else if (command.arguments[0] == "Village") {
-        entity = new Village();
-        size = 10;
-    }
-    else if (command.arguments[0] == "Road") {
-        entity = new Road();
-        size = 5;
-    }
-
+    shared_ptr<IBuildableEntity> entity;
     Position pos;
-    pos.first = stoi(command.arguments[1]) - 1;
-    pos.second = stoi(command.arguments[0]) - 1;
+    int size = 0;
+    pos.first = stoi(command->arguments[2])-1;
+    pos.second = stoi(command->arguments[1])-1;
 
+    if(command->arguments[0] == "City") {
+        entity = make_shared<City>(pos);
+        City::count++;
+        size = 20; //TODO:  read size from json
+    }
+    else if (command->arguments[0] == "Village") {
+        entity = make_shared<Village>(pos);
+        Village::count++;
+        size = 10; //TODO:  read size from json
+    }
+    else if (command->arguments[0] == "Road") {
+        entity = make_shared<Road>(pos);
+        Road::count++;
+        size = 5; //TODO:  read size from json
+    }
     addEntity(pos, entity, size);
-
 }
 
 Coordination WorldMap::getCoordination(pair<int, int> coord)
@@ -169,9 +189,10 @@ Coordination WorldMap::getCoordination(pair<int, int> coord)
     return worldGrid[coord.first][coord.second];
 }
 
-void WorldMap::addEntity(Position pos, IEntity* entity, int size)
+bool WorldMap::addEntity(Position pos, shared_ptr<IEntity> entity, int size)
 {
     for (int i = pos.first; i < size + pos.first; i++)
         for (int j = pos.second ; j < size + pos.second; j++)
-            worldGrid[i][j].entity.reset(entity);
+            worldGrid[i][j].entity=entity;
+    return true;
 }

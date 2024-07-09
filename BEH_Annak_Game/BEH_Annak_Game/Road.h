@@ -2,9 +2,11 @@
 #include "IBuildableEntity.h"
 
 class Road :public IBuildableEntity
-{
-	virtual int getPosition();
-	virtual vector<int> getResources();
-	virtual bool build(WorldMap& world);
+{	
+	public:
+		Road(Position pos);
+		static int count;
+		virtual bool build(shared_ptr<WorldMap> world);
+		virtual bool checkIfCanBuild(shared_ptr<WorldMap> world);
 };
 

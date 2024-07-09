@@ -3,12 +3,9 @@
 #include "WorldMap.h"
 class IBuildableEntity :public IEntity
 {
-protected:
-	Position pos;
-public:
-
-	virtual int getPosition() = 0;
-	virtual vector<int> getResources() = 0;
-	virtual bool build(WorldMap& world) = 0;
+	public:
+		virtual bool build(shared_ptr<WorldMap> world)=0;
+		virtual bool checkIfCanBuild(shared_ptr<WorldMap> world) = 0;
+		virtual bool checkIfNextToRoad(shared_ptr<WorldMap> world, int size);
 };
 

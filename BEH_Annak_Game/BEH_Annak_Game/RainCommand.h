@@ -3,10 +3,10 @@
 #include "WorldMap.h"
 class RainCommand : public IWaitingCommand
 {
-		WorldMap world;
+		shared_ptr<WorldMap> world;
 		int rain;
 	public:
-		RainCommand(int rain, WorldMap & world);
+		RainCommand(int rain, shared_ptr<WorldMap> world);
 		virtual bool execute();
 };
 

@@ -1,15 +1,16 @@
 #pragma once
 #include "IWaitingCommand.h"
 #include "CommonHeaders.h"
+#include "IBuildableEntity.h"
 class BuildCommand : public IWaitingCommand
 {
-	WorldMap world;
-	IBuildableEntity* entity;
-	int size;
+	shared_ptr<WorldMap> world;
+	shared_ptr<IBuildableEntity> entity;
+	//int size;
 	Position pos;
 	
 public:
-	BuildCommand(Command command, WorldMap& world);
+	BuildCommand(shared_ptr<Command> command, shared_ptr<WorldMap> world);
 	virtual bool execute();
 };
 

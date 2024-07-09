@@ -19,6 +19,18 @@
     <Filter Include="Source Files\WaitingCommands">
       <UniqueIdentifier>{f25d34aa-e80f-41a0-a74b-412e238b2fe5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\entities">
+      <UniqueIdentifier>{c4422c8a-d781-49d0-900d-32b2b650733a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\entities">
+      <UniqueIdentifier>{629c964c-e653-44ea-93a7-91f4d84c703d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\tiles">
+      <UniqueIdentifier>{63fdb867-db63-4d3c-b675-8e89c116522d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\tiles">
+      <UniqueIdentifier>{550f0f02-b6e3-446d-9a79-ceef4a142f7c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BEH_Annak_Game.cpp">
@@ -33,21 +45,6 @@
     <ClCompile Include="WorldMap.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="NaturalLand.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Coordination.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="IEntity.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Person.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="IMove.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="IWaitingCommand.cpp">
       <Filter>Source Files\WaitingCommands</Filter>
     </ClCompile>
@@ -60,20 +57,35 @@
     <ClCompile Include="WaitingCommands.cpp">
       <Filter>Source Files\WaitingCommands</Filter>
     </ClCompile>
-    <ClCompile Include="City.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Village.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Road.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="BuildCommand.cpp">
       <Filter>Source Files\WaitingCommands</Filter>
     </ClCompile>
+    <ClCompile Include="City.cpp">
+      <Filter>Source Files\entities</Filter>
+    </ClCompile>
+    <ClCompile Include="IEntity.cpp">
+      <Filter>Source Files\entities</Filter>
+    </ClCompile>
     <ClCompile Include="IBuildableEntity.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\entities</Filter>
+    </ClCompile>
+    <ClCompile Include="Person.cpp">
+      <Filter>Source Files\entities</Filter>
+    </ClCompile>
+    <ClCompile Include="Road.cpp">
+      <Filter>Source Files\entities</Filter>
+    </ClCompile>
+    <ClCompile Include="Village.cpp">
+      <Filter>Source Files\entities</Filter>
+    </ClCompile>
+    <ClCompile Include="NaturalLand.cpp">
+      <Filter>Source Files\tiles</Filter>
+    </ClCompile>
+    <ClCompile Include="Coordination.cpp">
+      <Filter>Source Files\tiles</Filter>
+    </ClCompile>
+    <ClCompile Include="IMove.cpp">
+      <Filter>Source Files\entities</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -97,22 +109,7 @@
     <ClInclude Include="Utility.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="NaturalLand.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="ReadJson.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Coordination.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="IEntity.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Person.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="IMove.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="RainCommand.h">
@@ -127,23 +124,38 @@
     <ClInclude Include="WaitingCommands.h">
       <Filter>Header Files\WaitingCommands</Filter>
     </ClInclude>
-    <ClInclude Include="City.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Village.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Road.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="BuildCommand.h">
       <Filter>Header Files\WaitingCommands</Filter>
     </ClInclude>
+    <ClInclude Include="City.h">
+      <Filter>Header Files\entities</Filter>
+    </ClInclude>
     <ClInclude Include="IBuildableEntity.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\entities</Filter>
+    </ClInclude>
+    <ClInclude Include="IEntity.h">
+      <Filter>Header Files\entities</Filter>
+    </ClInclude>
+    <ClInclude Include="Road.h">
+      <Filter>Header Files\entities</Filter>
+    </ClInclude>
+    <ClInclude Include="Person.h">
+      <Filter>Header Files\entities</Filter>
+    </ClInclude>
+    <ClInclude Include="Village.h">
+      <Filter>Header Files\entities</Filter>
     </ClInclude>
     <ClInclude Include="IWaitingCommand.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\WaitingCommands</Filter>
+    </ClInclude>
+    <ClInclude Include="NaturalLand.h">
+      <Filter>Header Files\tiles</Filter>
+    </ClInclude>
+    <ClInclude Include="Coordination.h">
+      <Filter>Header Files\tiles</Filter>
+    </ClInclude>
+    <ClInclude Include="IMove.h">
+      <Filter>Header Files\entities</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

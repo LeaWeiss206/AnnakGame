@@ -10,7 +10,7 @@ using namespace std;
 class MoveCommand : public IWaitingCommand
 {
 	private:
-		WorldMap world;
+		shared_ptr<WorldMap> world;
 		shared_ptr<IMove> movingItem;
 		Position src;
 		Position dest;
@@ -20,7 +20,7 @@ class MoveCommand : public IWaitingCommand
 		
 	public:
 		typedef void (Person::* FunctionPtr)(shared_ptr<IEntity> entity, Coordination coord);
-		MoveCommand(WorldMap & world, Position & src, Position & dest);
+		MoveCommand(shared_ptr<WorldMap> world, Position & src, Position & dest);
 	//	MoveCommand(WorldMap& world, Position& src, Position& dest, FunctionPtr);
 		virtual bool execute();
 	//	FunctionPtr commandToRunAfterMoving;

@@ -8,6 +8,5 @@ Coordination::Coordination(shared_ptr<NaturalLand> tile)
 
 bool Coordination::operator!=(Coordination const& coord) const
 {
-	/*if(this->)*/
 	return false;
 }
