@@ -1,0 +1,54 @@
+{
+  "Tiles": {
+    "Ground": 1,
+    "Water": 2,
+    "Forest": 3,
+    "Field": 4,
+    "IronMine": 5,
+    "BlocksMine": 6
+  },
+  "StartingResources": {
+    "Forest": 10,
+    "Field": 10,
+    "IronMine": 100,
+    "BlocksMine": 100,
+    "Village": 1,
+    "City": 5
+  },
+  "ResourceTypes": ["Wood", "Wool", "Iron", "Blocks", "People"],
+  "Costs": {
+    "Road": [0, 0, 0, 5, 1],
+    "Village": [10, 10, 0, 5, 10],
+    "City": [20, 20, 10, 10, 20],
+    "Car": [0, 0, 5, 0, 0],
+    "Truck": [5, 0, 5, 0, 0],
+    "Helicopter": [0, 0, 10, 0, 0]
+  },
+  "Capacities": {
+    "Village": [10, 10, 5, 5, 10],
+    "City": [20, 20, 10, 10, 20],
+    "Car": [1, 1, 0, 1, 1],
+    "Truck": [2, 2, 1, 2, 2],
+    "Helicopter": [1, 1, 0, 1, 1]
+  },
+  "Sizes": {
+    "Tile": [5, 5],
+    "People": [1, 1],
+    "Car": [2, 2],
+    "Truck": [3, 3],
+    "Helicopter": [2, 2],
+    "Road": [5, 5],
+    "Village": [10, 10],
+    "City": [20, 20]
+  },
+  "Speeds": {
+    "Car": 0.04,
+    "Truck": 0.02,
+    "Helicopter": 0.08,
+    "People": 0.01
+  },
+  "Rains": {
+    "Wood": 2000,
+    "Wool": 1000
+  }
+}
