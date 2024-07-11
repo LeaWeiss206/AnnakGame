@@ -1,6 +1,5 @@
 #include "MoveCommand.h"
 
-
 MoveCommand::MoveCommand(shared_ptr<WorldMap> world, Position& src, Position& dest/*, FunctionPtr commandToRunAfterMoving*/)
 	: world(world), src(src), dest(dest)/*, commandToRunAfterMoving(commandToRunAfterMoving) */// השתמש בהפניות
 {
@@ -10,8 +9,6 @@ MoveCommand::MoveCommand(shared_ptr<WorldMap> world, Position& src, Position& de
 	currentDest = 1;
 	this->dest = way[currentDest++];
 }
-
-
 
 bool MoveCommand::execute()
 {

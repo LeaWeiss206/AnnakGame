@@ -1,6 +1,5 @@
 #include "WaitingCommands.h"
 
-
 void WaitingCommands::addCommand(shared_ptr<IWaitingCommand> command)
 {
 	this->commands.push_back(command);

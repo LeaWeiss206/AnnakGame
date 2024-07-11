@@ -1,9 +1,12 @@
 C:\Users\1\Desktop\BEH_Annak_Game\BEH_Annak_Game\BEH_Annak_Game.cpp;C:\Users\1\Desktop\BEH_Annak_Game\BEH_Annak_Game\x64\Debug\BEH_Annak_Game.obj
+C:\Users\1\Desktop\BEH_Annak_Game\BEH_Annak_Game\Car.cpp;C:\Users\1\Desktop\BEH_Annak_Game\BEH_Annak_Game\x64\Debug\Car.obj
+C:\Users\1\Desktop\BEH_Annak_Game\BEH_Annak_Game\Helicopter.cpp;C:\Users\1\Desktop\BEH_Annak_Game\BEH_Annak_Game\x64\Debug\Helicopter.obj
 C:\Users\1\Desktop\BEH_Annak_Game\BEH_Annak_Game\IBuildableEntity.cpp;C:\Users\1\Desktop\BEH_Annak_Game\BEH_Annak_Game\x64\Debug\IBuildableEntity.obj
 C:\Users\1\Desktop\BEH_Annak_Game\BEH_Annak_Game\BuildCommand.cpp;C:\Users\1\Desktop\BEH_Annak_Game\BEH_Annak_Game\x64\Debug\BuildCommand.obj
 C:\Users\1\Desktop\BEH_Annak_Game\BEH_Annak_Game\City.cpp;C:\Users\1\Desktop\BEH_Annak_Game\BEH_Annak_Game\x64\Debug\City.obj
 C:\Users\1\Desktop\BEH_Annak_Game\BEH_Annak_Game\Command.cpp;C:\Users\1\Desktop\BEH_Annak_Game\BEH_Annak_Game\x64\Debug\Command.obj
 C:\Users\1\Desktop\BEH_Annak_Game\BEH_Annak_Game\Coordination.cpp;C:\Users\1\Desktop\BEH_Annak_Game\BEH_Annak_Game\x64\Debug\Coordination.obj
+C:\Users\1\Desktop\BEH_Annak_Game\BEH_Annak_Game\IDriveable.cpp;C:\Users\1\Desktop\BEH_Annak_Game\BEH_Annak_Game\x64\Debug\IDriveable.obj
 C:\Users\1\Desktop\BEH_Annak_Game\BEH_Annak_Game\IEntity.cpp;C:\Users\1\Desktop\BEH_Annak_Game\BEH_Annak_Game\x64\Debug\IEntity.obj
 C:\Users\1\Desktop\BEH_Annak_Game\BEH_Annak_Game\IMove.cpp;C:\Users\1\Desktop\BEH_Annak_Game\BEH_Annak_Game\x64\Debug\IMove.obj
 C:\Users\1\Desktop\BEH_Annak_Game\BEH_Annak_Game\Input.cpp;C:\Users\1\Desktop\BEH_Annak_Game\BEH_Annak_Game\x64\Debug\Input.obj
@@ -13,6 +16,7 @@ C:\Users\1\Desktop\BEH_Annak_Game\BEH_Annak_Game\NaturalLand.cpp;C:\Users\1\Desk
 C:\Users\1\Desktop\BEH_Annak_Game\BEH_Annak_Game\Person.cpp;C:\Users\1\Desktop\BEH_Annak_Game\BEH_Annak_Game\x64\Debug\Person.obj
 C:\Users\1\Desktop\BEH_Annak_Game\BEH_Annak_Game\RainCommand.cpp;C:\Users\1\Desktop\BEH_Annak_Game\BEH_Annak_Game\x64\Debug\RainCommand.obj
 C:\Users\1\Desktop\BEH_Annak_Game\BEH_Annak_Game\Road.cpp;C:\Users\1\Desktop\BEH_Annak_Game\BEH_Annak_Game\x64\Debug\Road.obj
+C:\Users\1\Desktop\BEH_Annak_Game\BEH_Annak_Game\Truck.cpp;C:\Users\1\Desktop\BEH_Annak_Game\BEH_Annak_Game\x64\Debug\Truck.obj
 C:\Users\1\Desktop\BEH_Annak_Game\BEH_Annak_Game\Village.cpp;C:\Users\1\Desktop\BEH_Annak_Game\BEH_Annak_Game\x64\Debug\Village.obj
 C:\Users\1\Desktop\BEH_Annak_Game\BEH_Annak_Game\WaitingCommands.cpp;C:\Users\1\Desktop\BEH_Annak_Game\BEH_Annak_Game\x64\Debug\WaitingCommands.obj
 C:\Users\1\Desktop\BEH_Annak_Game\BEH_Annak_Game\WorldMap.cpp;C:\Users\1\Desktop\BEH_Annak_Game\BEH_Annak_Game\x64\Debug\WorldMap.obj

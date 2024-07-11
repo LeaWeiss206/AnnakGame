@@ -24,7 +24,9 @@ class NaturalLand
 		static string getCategoryBySelectedValue(int categ, string category);
 		int getValueBySelectedCategory(string categ, string group);
 		void startResource(int addAmount);
+		void addResources(int amount);
 		void raining();
+		virtual void emptyResources();
 
 };
 

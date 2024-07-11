@@ -3,6 +3,7 @@
 Person::Person()
 {
     stepPart = 0;
+    maxCapacities = { 20, 20, 20, 20 };
 }
 
 Person::Person(Person& p)
@@ -26,7 +27,6 @@ double Person::getSpeed()
     return 0.01;
 }
 
-
 bool Person::move(Coordination coord)
 {
     stepPart += getSpeed();
@@ -41,6 +41,7 @@ bool Person::move(Coordination coord)
     }
 	return false;
 }
+
 void Person::work(/*shared_ptr<IEntity> person,*/ Coordination coord)
 {
     if (coord.tile->landType != "Ground") {
@@ -52,6 +53,7 @@ void Person::work(/*shared_ptr<IEntity> person,*/ Coordination coord)
     //TODO
     //return false;
 }
+
 vector<Position> Person::generateWay(Position& src, Position& dest) {
     //check if we have to do BFS here
     vector<Position> way;

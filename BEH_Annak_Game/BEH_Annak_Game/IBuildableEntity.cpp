@@ -1,5 +1,7 @@
 #include "IBuildableEntity.h"
 #include "Road.h"
+#include "City.h"
+#include "Village.h"
 
 bool IBuildableEntity::checkIfNextToRoad(shared_ptr<WorldMap> world, int size)
 {
@@ -21,7 +23,7 @@ bool IBuildableEntity::checkIfNextToRoad(shared_ptr<WorldMap> world, int size)
 	//check left
 	if (pos.second - 1 > 0) {
 		road.second = pos.second - 1;
-		for (int i = pos.first; i < (size + pos.first - 5); i++) {
+		for (int i = pos.first; i < (size + pos.first - 5); i++){
 			count = 0;
 			for (int j = i; j < (i + 5); j++) {
 				road.first = j;
@@ -61,4 +63,15 @@ bool IBuildableEntity::checkIfNextToRoad(shared_ptr<WorldMap> world, int size)
 		}
 		return false;
 	}
+}
+
+bool IBuildableEntity::checkIfEmptyArea(shared_ptr<WorldMap> world, int size)
+{
+	for (int i = pos.first; i < size + pos.first; i++)
+		for (int j = pos.second; j < size + pos.second; j++)
+			if (dynamic_pointer_cast<Road>(world->getCoordination(pos).entity) || //TODO : check if next to road or city etc.
+				dynamic_pointer_cast<City>(world->getCoordination(pos).entity) ||
+				dynamic_pointer_cast<Village>(world->getCoordination(pos).entity) ||
+				(world->getCoordination(pos).tile->landType != "Ground"))
+					return false;
 }

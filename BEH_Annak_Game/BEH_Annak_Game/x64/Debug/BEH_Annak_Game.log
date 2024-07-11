@@ -1,10 +1,2 @@
 ﻿  BEH_Annak_Game.cpp
-  BuildCommand.cpp
-  City.cpp
-  IBuildableEntity.cpp
-  Road.cpp
-  Village.cpp
-  WorldMap.cpp
-  Generating Code...
-C:\Users\1\Desktop\BEH_Annak_Game\BEH_Annak_Game\IBuildableEntity.cpp(64,1): warning C4715: 'IBuildableEntity::checkIfNextToRoad': not all control paths return a value
   BEH_Annak_Game.vcxproj -> C:\Users\1\Desktop\BEH_Annak_Game\x64\Debug\BEH_Annak_Game.exe

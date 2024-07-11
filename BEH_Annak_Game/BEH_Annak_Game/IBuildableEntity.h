@@ -7,5 +7,7 @@ class IBuildableEntity :public IEntity
 		virtual bool build(shared_ptr<WorldMap> world)=0;
 		virtual bool checkIfCanBuild(shared_ptr<WorldMap> world) = 0;
 		virtual bool checkIfNextToRoad(shared_ptr<WorldMap> world, int size);
+		virtual bool checkIfEmptyArea(shared_ptr<WorldMap> world, int size);
+
 };
 

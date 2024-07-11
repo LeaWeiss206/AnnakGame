@@ -22,12 +22,22 @@ class WorldMap{
         string getResource(int x, int y) const;
         string getSelectedCoordinationsLandType(int x, int y) const;
         vector<int> getSelectedCoordinationsResource(int x, int y) const;
-        void startResource(Input const& input);
+        void startResource(Input const& input, shared_ptr<Command> command);
         void raining();
-        void startPeople(Input const& input);
+        //void startPeople(Input const& input);
         void startbuild(shared_ptr<Command> command);
         Coordination getCoordination(pair<int, int> coord);
         bool addEntity(Position pos, shared_ptr<IEntity> entity, int size);
+        void makeEmpty(shared_ptr<Command> command);
+        void addPeople(shared_ptr<Command> command);
+        int getSelectedPeople(Position pos);
+        void deposit(shared_ptr<Command> command, Position selectedCoordination);
+
+        /////////////////////////////////////////////////////////////////////
+
+        void printImg();
+        string parse_to_img_path(int num);
+       // void drawGridLines();
 };
 
 

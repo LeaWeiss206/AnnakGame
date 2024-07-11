@@ -11,7 +11,6 @@ NaturalLand::NaturalLand(int landTypeNumber)
         this->resources[landTypeNumber-3]= getValueBySelectedCategory(landType, "StartingResources");
 }
 
-
  string NaturalLand::getCategoryBySelectedValue(int categ, string group)
 {
      ReadJson json;
@@ -25,6 +24,7 @@ NaturalLand::NaturalLand(int landTypeNumber)
     }
     return key;
 }
+
  int NaturalLand::getValueBySelectedCategory(string categ, string group)
  {
      ReadJson json;
@@ -44,6 +44,11 @@ NaturalLand::NaturalLand(int landTypeNumber)
      this->resources[landTypeNumber - 3] = amount;
  }
 
+ void NaturalLand::addResources(int amount)
+ {
+     this->resources[landTypeNumber - 3] += amount;
+ }
+
  void NaturalLand::raining()
  {
      this->rain++;
@@ -57,6 +62,12 @@ NaturalLand::NaturalLand(int landTypeNumber)
          this->resources[landTypeNumber - 3] += (this->rain / rainPerResource);
          this->rain= rain % rainPerResource;
      }
+ }
+
+ void NaturalLand::emptyResources()
+ {
+     for(int resource : resources)
+            resource = 0;
  }
 
 

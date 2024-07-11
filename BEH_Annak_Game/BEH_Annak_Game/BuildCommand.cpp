@@ -25,7 +25,7 @@ BuildCommand::BuildCommand(shared_ptr<Command> command, shared_ptr<WorldMap> wor
 
 bool BuildCommand::execute()
 {
-    if (world->getCoordination(pos).tile->landType == "Ground")
+    //if (world->getCoordination(pos).tile->landType == "Ground")
         return entity->build(world);
-    return false;
+   // return false;
 }

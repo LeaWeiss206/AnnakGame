@@ -1,8 +1,7 @@
 c:\users\1\desktop\beh_annak_game\beh_annak_game\x64\debug\vc143.pdb
 c:\users\1\desktop\beh_annak_game\beh_annak_game\x64\debug\vc143.idb
-c:\users\1\desktop\beh_annak_game\beh_annak_game\x64\debug\worldmap.obj
-c:\users\1\desktop\beh_annak_game\beh_annak_game\x64\debug\waitingcommands.obj
 c:\users\1\desktop\beh_annak_game\beh_annak_game\x64\debug\village.obj
+c:\users\1\desktop\beh_annak_game\beh_annak_game\x64\debug\truck.obj
 c:\users\1\desktop\beh_annak_game\beh_annak_game\x64\debug\road.obj
 c:\users\1\desktop\beh_annak_game\beh_annak_game\x64\debug\raincommand.obj
 c:\users\1\desktop\beh_annak_game\beh_annak_game\x64\debug\person.obj
@@ -12,12 +11,17 @@ c:\users\1\desktop\beh_annak_game\beh_annak_game\x64\debug\iwaitingcommand.obj
 c:\users\1\desktop\beh_annak_game\beh_annak_game\x64\debug\input.obj
 c:\users\1\desktop\beh_annak_game\beh_annak_game\x64\debug\imove.obj
 c:\users\1\desktop\beh_annak_game\beh_annak_game\x64\debug\ientity.obj
+c:\users\1\desktop\beh_annak_game\beh_annak_game\x64\debug\idriveable.obj
 c:\users\1\desktop\beh_annak_game\beh_annak_game\x64\debug\coordination.obj
 c:\users\1\desktop\beh_annak_game\beh_annak_game\x64\debug\command.obj
 c:\users\1\desktop\beh_annak_game\beh_annak_game\x64\debug\city.obj
 c:\users\1\desktop\beh_annak_game\beh_annak_game\x64\debug\buildcommand.obj
 c:\users\1\desktop\beh_annak_game\beh_annak_game\x64\debug\ibuildableentity.obj
+c:\users\1\desktop\beh_annak_game\beh_annak_game\x64\debug\helicopter.obj
+c:\users\1\desktop\beh_annak_game\beh_annak_game\x64\debug\car.obj
 c:\users\1\desktop\beh_annak_game\beh_annak_game\x64\debug\beh_annak_game.obj
+c:\users\1\desktop\beh_annak_game\beh_annak_game\x64\debug\worldmap.obj
+c:\users\1\desktop\beh_annak_game\beh_annak_game\x64\debug\waitingcommands.obj
 c:\users\1\desktop\beh_annak_game\beh_annak_game\x64\debug\beh_annak_game.ilk
 c:\users\1\desktop\beh_annak_game\x64\debug\beh_annak_game.pdb
 c:\users\1\desktop\beh_annak_game\x64\debug\beh_annak_game.exe

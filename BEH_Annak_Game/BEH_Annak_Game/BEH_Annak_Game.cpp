@@ -16,6 +16,13 @@
 //#include "WorldMap.h"
 using namespace std;
 
+#ifdef _DEBUG
+// the debug version that corresponds to the opencv_world420d.dll:
+#pragma comment(lib, "opencv_world4100d.lib")
+#else
+// the release version that corresponds to the opencv_world420.dll:
+#pragma comment(lib, "opencv_world4100.lib")
+#endif
 
 
 void runStartCommands(shared_ptr<WorldMap> world, Input const& input);
@@ -27,7 +34,7 @@ WaitingCommands waitingCommands;
 
 int main()
 {
-    Input input;
+    Input input("input.txt");
     input.parse_and_store();
 
     shared_ptr<WorldMap> world(new WorldMap(input));//WorldMap constructor fills the world grid
@@ -35,6 +42,11 @@ int main()
     runStartCommands(world, input);
     runInputCommands(world, input); 
     runAssertsCommands(world, input, selectedCoordination);
+
+    //world->printImg();
+    ////world->drawGridLines();
+
+
     return 0;
 }
 
@@ -44,22 +56,25 @@ void runStartCommands(shared_ptr<WorldMap> world, Input const& input)
         string startCommand = command->name;
         if (startCommand == Command::RESOURCE){
             //TODO: try catch
-            world->startResource(input);
+            world->startResource(input, command);
             continue;
         }
         if (startCommand == Command::PEOPLE){
             //TODO: try catch
-            world->startPeople(input);
+            world->addPeople(command);
             continue;
         }
         if (startCommand == Command::BUILD) {
             world->startbuild(command);
             continue;
         }
+        if (startCommand == Command::MAKE_EMPTY) {
+            world->makeEmpty(command);
+            continue;
+        }
     }
 }
-//
-/////////////////////////////////////////////////////////////////////////////
+ 
 void runInputCommands(shared_ptr<WorldMap> world, Input const& input)
 {
 
@@ -70,11 +85,13 @@ void runInputCommands(shared_ptr<WorldMap> world, Input const& input)
             int y = stoi(command->arguments[0]) - 1, x = stoi(command->arguments[1]) - 1;
             selectedCoordination.first = x;
             selectedCoordination.second = y;
+            continue;
         }
         if (inputCommand == Command::RAIN)
         {
             shared_ptr <IWaitingCommand> rain(new RainCommand(stoi(command->arguments[0]), world));
             waitingCommands.addCommand(rain);
+            continue;
         }
         if(inputCommand == Command::WORK)
         {
@@ -84,6 +101,7 @@ void runInputCommands(shared_ptr<WorldMap> world, Input const& input)
                 pos.second = stoi(command->arguments[0]) - 1;
                 shared_ptr<IWaitingCommand> move(new MoveCommand(world, selectedCoordination, pos));
                 waitingCommands.addCommand(move);
+                continue;
             }
 
         }
@@ -93,13 +111,24 @@ void runInputCommands(shared_ptr<WorldMap> world, Input const& input)
             pos.second = stoi(command->arguments[0]) - 1;
             shared_ptr<IWaitingCommand> move(new MoveCommand(world, selectedCoordination, pos));
             waitingCommands.addCommand(move);
+            continue;
         }
-        if (inputCommand == Command::WAIT)
+        if (inputCommand == Command::WAIT) {
             waitingCommands.runCommands(world, stoi(command->arguments[0]));
-        
+            continue;
+        }
         if (inputCommand == Command::BUILD) {
             shared_ptr <IWaitingCommand> build(new BuildCommand(command, world));
             waitingCommands.addCommand(build);
+            continue;
+        }
+        if (inputCommand == Command::PEOPLE) {
+            world->addPeople(command);
+            continue;
+        }
+        if (inputCommand == Command::DEPOSIT) {
+            world->deposit(command, selectedCoordination);
+            continue;
         }
     }
 }
@@ -125,6 +154,9 @@ void runAssertsCommands(shared_ptr<WorldMap> world, Input const& input, pair<int
         }
         else if (assertName == "SelectedComplete") {
             cout << assertName << " false";
+        }
+        else if (assertName == "SelectedPeople") {
+            cout << assertName << " " << world->getSelectedPeople(selectedCoordination);;
         }
         cout<<endl;
     }
