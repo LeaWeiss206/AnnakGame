@@ -132,6 +132,7 @@
   <ItemGroup>
     <ClCompile Include="BEH_Annak_Game.cpp" />
     <ClCompile Include="Car.cpp" />
+    <ClCompile Include="Graphics.cpp" />
     <ClCompile Include="Helicopter.cpp" />
     <ClCompile Include="IBuildableEntity.cpp" />
     <ClCompile Include="BuildCommand.cpp" />
@@ -158,6 +159,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Car.h" />
+    <ClInclude Include="Graphics.h" />
     <ClInclude Include="Helicopter.h" />
     <ClInclude Include="IBuildableEntity.h" />
     <ClInclude Include="BuildCommand.h" />

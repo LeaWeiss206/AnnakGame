@@ -1,19 +1,11 @@
 +World
-1 1 1 1 1
-1 1 1 1 1
-1 1 1 1 1
-1 1 1 1 1
-1 1 1 1 1
+1 1 2 2 1 1 2 2 
+3 3 4 4 3 3 4 4 
+5 5 6 6 5 5 6 6 
+1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1
 +Start
-Build Village 1 1
-MakeEmpty 1 1
-Resource 10 Wood 1 1
-People 1 22 2
-Resource 1 Wood 22 2
-+Input
-Select 22 2
-Deposit 1 1
-Wait 2000
-Select 1 1
-+Asserts
-SelectedResource
+People 1 10 5
+People 1 2 15
+Build Village 20 1
+Build Road 1 16

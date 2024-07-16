@@ -13,6 +13,7 @@
 #include "City.h"
 #include "Village.h"
 #include "Road.h"
+#include "Graphics.h"
 //#include "WorldMap.h"
 using namespace std;
 
@@ -36,6 +37,7 @@ int main()
 {
     Input input("input.txt");
     input.parse_and_store();
+    
 
     shared_ptr<WorldMap> world(new WorldMap(input));//WorldMap constructor fills the world grid
 
@@ -43,8 +45,11 @@ int main()
     runInputCommands(world, input); 
     runAssertsCommands(world, input, selectedCoordination);
 
-    //world->printImg();
-    ////world->drawGridLines();
+    
+   /* graphics->printImg(world);
+    graphics->addPersonAfterBackground("C:\\Users\\1\\Desktop\\annakImages\\People\\WALKING PERSON 1\\sprite_1.png", 10,5);*/
+    //graphics.addImageAndShow("sprite_1", Position(2, 2));
+    //world->drawGridLines();
 
 
     return 0;
@@ -73,6 +78,7 @@ void runStartCommands(shared_ptr<WorldMap> world, Input const& input)
             continue;
         }
     }
+    world->getGraphics()->moveObjectsRandomly();
 }
  
 void runInputCommands(shared_ptr<WorldMap> world, Input const& input)
